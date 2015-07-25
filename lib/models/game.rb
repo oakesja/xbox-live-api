@@ -1,4 +1,6 @@
-class Game
+require 'models/common/my_comparable'
+
+class Game < MyComparable
   class Type
     XBOX_360 = '360'
     XBOX_ONE = '720'
@@ -18,13 +20,7 @@ class Game
     @total_gamerscore = total_gamerscore
   end
 
-  def ==(o)
-    o.class == self.class && o.state == state
-  end
-
-  def hash
-    state.hash
-  end
+  protected
 
   def state
     [@name, @id, @last_unlock_time, @platform, @current_achievements,
