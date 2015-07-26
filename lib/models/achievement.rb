@@ -1,6 +1,6 @@
 require 'models/common/my_comparable'
 
-class Achievement
+class Achievement < MyComparable
   attr_reader :name, :id, :is_unlocked, :icon_url, :is_secret, :unlocked_description,
               :locked_description, :value
 
@@ -14,14 +14,6 @@ class Achievement
     @unlocked_description = unlocked_description
     @locked_description = locked_description
     @value = value
-  end
-
-  def ==(o)
-    o.class == self.class && o.state == state
-  end
-
-  def hash
-    state.hash
   end
 
   protected

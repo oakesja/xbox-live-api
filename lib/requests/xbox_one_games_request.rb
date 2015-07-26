@@ -3,15 +3,15 @@ require 'requests/games_request'
 class XboxOneGamesRequest < GamesRequest
 
   def for(user_id)
-    json = get_request_json(user_id, GamesRequest::Version::XBOX_ONE)
-    json['titles'].collect do |game_json|
-      Game.new(name: game_json['name'],
-               id: game_json['titleId'],
-               last_unlock_time: game_json['lastUnlock'],
+    games = get_game_list_json(user_id, Version::XBOX_ONE)
+    games.collect do |game|
+      Game.new(name: game['name'],
+               id: game['titleId'],
+               last_unlock_time: game['lastUnlock'],
                platform: Game::Type::XBOX_ONE,
-               current_achievements: game_json['earnedAchievements'],
-               current_gamerscore: game_json['currentGamerscore'],
-               total_gamerscore: game_json['maxGamerscore'])
+               current_achievements: game['earnedAchievements'],
+               current_gamerscore: game['currentGamerscore'],
+               total_gamerscore: game['maxGamerscore'])
     end
   end
 end

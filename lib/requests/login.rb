@@ -14,7 +14,7 @@ class Login
     access_token = get_access_token(url)
     authenticate(access_token)
     authorize
-    RequestInfo.new(user_id: @xid, gamertag: @gtg, authorization_header: @auth_header)
+    RequestInfo.new(user_id: @xid.to_i, gamertag: @gtg, authorization_header: @auth_header)
   end
 
   def get_request_url

@@ -1,6 +1,7 @@
 require 'xbox_live_api'
 require 'models/game'
 require 'models/achievement'
+require 'models/profile'
 
 describe XboxLiveApi do
   let(:email) { 'xb0xliveapi@hotmail.com' }
@@ -37,12 +38,16 @@ describe XboxLiveApi do
 
     describe '#get_profile' do
       it 'returns the profile information for the user' do
-        profile = {
-            id: '2535458020453936',
-            gamerTag: 'AssuredSteam271',
-            gamerScore: 15
-        }
-        expect(subject.get_profile).to eql profile
+        gamer_picture = 'http://images-eds.xboxlive.com/image?url=z951ykn43p4FqWbbFvR2Ec.8vbDhj8G2Xe7JngaTToBrrCmIEEXHC9UNrdJ6P7KIU9bcRvGYJAQotfisIC8nP2R3gKqd4PBnjXV9fDp5BlAEiV273wAV8SJGKuIPGCfC&format=png'
+        profile = Profile.new(id: 2535458020453936,
+                              gamertag: 'AssuredSteam271',
+                              gamerscore: 15,
+                              gamer_picture: gamer_picture,
+                              account_tier: 'Silver',
+                              xbox_one_rep: 'GoodPlayer',
+                              preferred_color_url: 'http://dlassets.xboxlive.com/public/content/ppl/colors/00000.json ',
+                              tenure_level: 0)
+        expect(subject.get_profile).to eq profile
       end
     end
 
@@ -72,6 +77,7 @@ describe XboxLiveApi do
                                         locked_description: description,
                                         value: 10)
           achievements = subject.get_achievements_for(xbox_one_game)
+          expect(achievements).to be_an_instance_of Array
           expect(achievements.size).to be 21
           expect(achievements).to include achievement
         end

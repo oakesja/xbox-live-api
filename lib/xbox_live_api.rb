@@ -1,9 +1,9 @@
 require 'kernel'
 require 'oj'
 require 'requests/login'
-require 'requests/get_profile'
+require 'requests/profile_request'
 require 'requests/xbox_one_games_request'
-require 'requests/get_xbox_360_games'
+require 'requests/xbox_360_games_request'
 require 'requests/achievement_request'
 
 class XboxLiveApi
@@ -13,13 +13,7 @@ class XboxLiveApi
   end
 
   def get_profile
-    resp = GetProfile.for(@request_info.user_id, @request_info.authorization_header)
-    json = Oj.load(resp)
-    {
-        id: json['profileUsers'][0]['id'],
-        gamerTag: json['profileUsers'][0]['settings'][1]['value'],
-        gamerScore: json['profileUsers'][0]['settings'][0]['value'].to_i
-    }
+    ProfileRequest.new(@request_info.authorization_header).for(@request_info.user_id)
   end
 
   def get_xbox_one_games

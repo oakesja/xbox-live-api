@@ -1,4 +1,8 @@
 class BaseRequest
+  class Version
+    XBOX_360 = 1
+    XBOX_ONE = 2
+  end
 
   def initialize(auth_header)
     @auth_header = auth_header
