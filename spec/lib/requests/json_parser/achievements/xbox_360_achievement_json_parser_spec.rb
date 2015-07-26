@@ -14,7 +14,8 @@ describe Xbox360AchievementJsonParser do
                                       is_secret: false,
                                       unlocked_description: 'You got an objective before everyone else.',
                                       locked_description: 'Be the first to get an objective in game.',
-                                      value: 5)
+                                      value: 5,
+                                      time_unlocked: '2002-11-15T00:00:00.0000000Z')
       end
       it 'returns the parsed Achievements' do
         achievements = subject.parse_achievements_from(json_string)

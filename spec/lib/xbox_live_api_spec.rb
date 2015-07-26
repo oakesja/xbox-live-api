@@ -75,7 +75,8 @@ describe XboxLiveApi do
                                         is_secret: false,
                                         unlocked_description: description,
                                         locked_description: description,
-                                        value: 10)
+                                        value: 10,
+                                        time_unlocked: '2015-07-25T13:16:50.2887979Z')
           achievements = subject.get_achievements_for(xbox_one_game)
           expect(achievements).to be_an_instance_of Array
           expect(achievements.size).to be 21
@@ -92,7 +93,8 @@ describe XboxLiveApi do
                                         is_secret: false,
                                         unlocked_description: 'You got an objective before everyone else.',
                                         locked_description: 'Be the first to get an objective in game.',
-                                        value: 5)
+                                        value: 5,
+                                        time_unlocked: '2015-07-25T13:55:01.5300000Z')
           achievements = subject.get_achievements_for(xbox_360_game)
           expect(achievements).to be_an_instance_of Array
           expect(achievements.size).to be 12

@@ -4,6 +4,7 @@ class Xbox360GamesRequest < GamesRequest
 
   def for(user_id)
     games = get_game_list_json(user_id, Version::XBOX_360)
+    # TODO create a parser
     games.collect do |game|
       Game.new(name: game['name'],
                id: game['titleId'],

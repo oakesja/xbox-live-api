@@ -35,4 +35,12 @@ class XboxOneAchievementJsonParser < AchievementJsonParser
   def value_from(achievement_json)
     achievement_json['rewards'][0]['value'].to_i
   end
+
+  def time_unlocked_from(achievement_json)
+    achievement_json['timeUnlocked']
+  end
+
+  def time_unlocked_from(achievement_json)
+    achievement_json['progression']['timeUnlocked']
+  end
 end

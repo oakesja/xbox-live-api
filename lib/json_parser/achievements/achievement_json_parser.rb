@@ -14,7 +14,8 @@ class AchievementJsonParser
                       is_secret: is_secret_from(achievement_json),
                       unlocked_description: unlocked_description_from(achievement_json),
                       locked_description: locked_description_from(achievement_json),
-                      value: value_from(achievement_json))
+                      value: value_from(achievement_json),
+                      time_unlocked: time_unlocked_from(achievement_json))
     end
   end
 
@@ -58,6 +59,10 @@ class AchievementJsonParser
   end
 
   def value_from(achievement_json)
+    raise NotImplementedError
+  end
+
+  def time_unlocked_from(achievement_json)
     raise NotImplementedError
   end
 end

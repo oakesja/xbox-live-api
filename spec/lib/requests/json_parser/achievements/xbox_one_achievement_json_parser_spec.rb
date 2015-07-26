@@ -16,7 +16,8 @@ describe XboxOneAchievementJsonParser do
                                       is_secret: false,
                                       unlocked_description: description,
                                       locked_description: description,
-                                      value: 10)
+                                      value: 10,
+                                      time_unlocked: '2015-07-25T13:16:50.2887979Z')
       end
       it 'returns the parsed Achievements' do
         achievements = subject.parse_achievements_from(json_string)

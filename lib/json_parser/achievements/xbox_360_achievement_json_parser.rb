@@ -37,4 +37,8 @@ class Xbox360AchievementJsonParser < AchievementJsonParser
   def value_from(achievement_json)
     achievement_json['gamerscore']
   end
+
+  def time_unlocked_from(achievement_json)
+    achievement_json['timeUnlocked']
+  end
 end
