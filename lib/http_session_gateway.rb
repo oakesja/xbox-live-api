@@ -13,11 +13,6 @@ class HttpSessionGateway
     transform_response(resp)
   end
 
-  def get_json(uri, query: nil, body: nil, header: nil, follow_redirect: nil)
-    resp = @client.get(uri, query: query, body: body, header: header, follow_redirect: follow_redirect)
-    transform_response_json(resp)
-  end
-
   def post(uri, query: nil, body: nil, header: nil, follow_redirect: nil)
     resp = @client.post(uri, query: query, body: body, header: header, follow_redirect: follow_redirect)
     transform_response(resp)
@@ -25,8 +20,7 @@ class HttpSessionGateway
 
   def post_json(uri, query: nil, body: nil, header: nil, follow_redirect: nil)
     body = Oj.dump(body) unless body.nil?
-    resp = @client.post(uri, query: query, body: body, header: header, follow_redirect: follow_redirect)
-    transform_response(resp)
+    post(uri, query: query, body: body, header: header, follow_redirect: follow_redirect)
   end
 
   private

@@ -53,30 +53,6 @@ describe HttpSessionGateway do
     end
   end
 
-  describe '#get_json' do
-    before(:each) do
-      allow(client).to receive(:get) { message }
-    end
-
-    context 'when given extra parameters' do
-      it 'calls the client\'s get with the extra parameters' do
-        expect_client_to_receive_all_params(:get)
-        subject.get_json(uri, query: query, body: body, header: header, follow_redirect: follow_redirect)
-      end
-    end
-
-    context 'when given no extra parameters' do
-      it 'calls the client\'s get with nil for the extra parameters' do
-        expect_client_to_recieve_no_params(:get)
-        subject.get_json(uri)
-      end
-    end
-
-    it 'returns a HttpResponse with the json body converted to a hash' do
-      expect(subject.get_json(uri)).to eq HttpResponse.new(Oj.load(response_body), header, status)
-    end
-  end
-
   describe '#post' do
     before(:each) do
       allow(client).to receive(:post) { message }

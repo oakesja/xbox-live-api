@@ -4,7 +4,7 @@ require 'requests/login'
 require 'requests/profile_request'
 require 'requests/xbox_one_games_request'
 require 'requests/xbox_360_games_request'
-require 'requests/achievement_request'
+require 'requests/achievements/achievement_request'
 
 class XboxLiveApi
 

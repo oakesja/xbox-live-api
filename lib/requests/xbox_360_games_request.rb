@@ -8,7 +8,7 @@ class Xbox360GamesRequest < GamesRequest
       Game.new(name: game['name'],
                id: game['titleId'],
                last_unlock_time: game['lastPlayed'],
-               platform: Game::Type::XBOX_360,
+               platform: Game::Platform::XBOX_360,
                current_achievements: game['currentAchievements'],
                current_gamerscore: game['currentGamerscore'],
                total_gamerscore: game['totalGamerscore'])

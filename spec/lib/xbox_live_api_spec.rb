@@ -11,7 +11,7 @@ describe XboxLiveApi do
     Game.new(name: 'RISK Factions',
              id: 1480657427,
              last_unlock_time: '2015-07-25T13:38:37.2170000Z',
-             platform: Game::Type::XBOX_360,
+             platform: Game::Platform::XBOX_360,
              current_achievements: 1,
              current_gamerscore: 5,
              total_gamerscore: 200)
@@ -20,7 +20,7 @@ describe XboxLiveApi do
     Game.new(name: 'So Many Me',
              id: 16468936,
              last_unlock_time: '2015-07-25T13:16:50.2887979Z',
-             platform: Game::Type::XBOX_ONE,
+             platform: Game::Platform::XBOX_ONE,
              current_achievements: 1,
              current_gamerscore: 10,
              total_gamerscore: 1000)
@@ -79,6 +79,23 @@ describe XboxLiveApi do
           achievements = subject.get_achievements_for(xbox_one_game)
           expect(achievements).to be_an_instance_of Array
           expect(achievements.size).to be 21
+          expect(achievements).to include achievement
+        end
+      end
+
+      context 'given an xbox 360 game' do
+        it 'returns the user\'s achievements for that game' do
+          achievement = Achievement.new(name: 'First Strike',
+                                        id: 2,
+                                        is_unlocked: true,
+                                        icon_url: 'http://image.xboxlive.com/global/t.58410a13/ach/0/6',
+                                        is_secret: false,
+                                        unlocked_description: 'You got an objective before everyone else.',
+                                        locked_description: 'Be the first to get an objective in game.',
+                                        value: 5)
+          achievements = subject.get_achievements_for(xbox_360_game)
+          expect(achievements).to be_an_instance_of Array
+          expect(achievements.size).to be 12
           expect(achievements).to include achievement
         end
       end

@@ -1,7 +1,7 @@
 require 'models/common/my_comparable'
 
 class Game < MyComparable
-  class Type
+  class Platform
     XBOX_360 = '360'
     XBOX_ONE = '720'
   end
