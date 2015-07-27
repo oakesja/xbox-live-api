@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version = version
   spec.authors = ['Jacob Oakes']
   spec.email = ['jacoboakes92@gmail.com']
-  spec.summary = 'A wrapper libary for xbox live\'s undocumented api'
-  spec.description = 'A library that uses xbox live\'s undocumented api to provide you with information about users, game, and achievements'
+  spec.summary = 'A wrapper library for Xbox Live\'s undocumented api'
+  spec.description = 'A library that uses Xbox Live\'s undocumented api to provide you with information about users, game, and achievements'
   spec.homepage = 'https://github.com/oakesja/xbox-live-api'
   spec.license = 'MIT'
   spec.files = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
