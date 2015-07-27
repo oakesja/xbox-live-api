@@ -3,7 +3,7 @@
 [![Code Climate](https://codeclimate.com/github/oakesja/xbox-live-api/badges/gpa.svg)](https://codeclimate.com/github/oakesja/xbox-live-api)
 [![Test Coverage](https://codeclimate.com/github/oakesja/xbox-live-api/badges/coverage.svg)](https://codeclimate.com/github/oakesja/xbox-live-api/coverage)
 
-XboxLiveApi is a wrapper library for Xbox Live's undocumented API used for Xbox One Smartglass app. This gem will 
+XboxLiveApi is a wrapper library for Xbox Live's undocumented API used for the Xbox One Smartglass app. This gem will 
 provide you access to your profile, games, and achievements. It is important to note that you must have a Windows Live 
 Account to be able to login and use this gem. Emails and passwords are not stored, logged, or otherwise used in any 
 manner other than to securely login to Xbox Live. 
@@ -19,7 +19,7 @@ gem 'xbox_live_api'
 Or install it yourself as:
 
 ```
-    $ gem install xbox-live-api
+$ gem install xbox-live-api
 ```
 ## Usage
 
