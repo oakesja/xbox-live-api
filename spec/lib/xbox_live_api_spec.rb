@@ -3,7 +3,6 @@ require 'spec_helper'
 describe XboxLiveApi do
   let(:email) { 'xb0xliveapi@hotmail.com' }
   let(:password) { '9UXxCGkAUfRtp3QT' }
-  let(:subject) { XboxLiveApi.new }
   let(:xbox_360_game) do
     XboxLiveApi::Game.new(name: 'RISK Factions',
              id: 1480657427,
@@ -24,14 +23,12 @@ describe XboxLiveApi do
   end
 
   describe '#login' do
-    it 'will log a user in with the specified email and password' do
-      expect { subject.login(email, password) }.to_not raise_error
+    it 'will log a user in with the specified email and password returing an instance of the api to use' do
+      expect(XboxLiveApi.login(email, password)).to be_an_instance_of XboxLiveApi
     end
   end
   context 'after a user has been logged in' do
-    before(:each) do
-      subject.login(email, password)
-    end
+    let(:subject) { XboxLiveApi.login(email, password) }
 
     describe '#get_profile' do
       it 'returns the profile information for the user' do

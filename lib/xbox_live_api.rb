@@ -7,8 +7,9 @@ require 'xbox_live_api/requests/achievements/achievement_request'
 
 class XboxLiveApi
 
-  def login(email, password)
-    @request_info = Login.new(email, password).go
+  def self.login(email, password)
+    request_info = Login.new(email, password).go
+    XboxLiveApi.new(request_info)
   end
 
   def get_profile
@@ -25,5 +26,11 @@ class XboxLiveApi
 
   def get_achievements_for(game)
     AchievementRequest.new(@request_info.authorization_header).for(@request_info.user_id, game)
+  end
+
+  private
+
+  def initialize(request_info)
+    @request_info = request_info
   end
 end

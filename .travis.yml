@@ -9,3 +9,4 @@ rvm:
 before_install: gem install bundler -v 1.10.5
 script:
  - bundle exec rspec
+ - gem build xbox_live_api.gemspec

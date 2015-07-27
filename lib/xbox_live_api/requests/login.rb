@@ -1,5 +1,7 @@
 require 'xbox_live_api/http_session_gateway'
 require 'xbox_live_api/models/request_info'
+require 'cgi'
+require 'uri'
 
 class XboxLiveApi
   class Login
