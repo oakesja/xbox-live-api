@@ -3,43 +3,65 @@
 [![Code Climate](https://codeclimate.com/github/oakesja/xbox-live-api/badges/gpa.svg)](https://codeclimate.com/github/oakesja/xbox-live-api)
 [![Test Coverage](https://codeclimate.com/github/oakesja/xbox-live-api/badges/coverage.svg)](https://codeclimate.com/github/oakesja/xbox-live-api/coverage)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/xbox/live/api`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+XboxLiveApi is a wrapper library for Xbox Live's undocumented API used for Xbox One Smartglass app. This gem will 
+provide you access to your profile, games, and achievements. It is important to note that you must have a Windows Live 
+Account to be able to login and use this gem. Emails and passwords are not stored, logged, or otherwise used in any 
+manner other than to securely login to Xbox Live. 
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'xbox-live-api'
-```# Specify your gem's dependencies in xbox-live-api.gemspec
-
-
-And then execute:
-
-    $ bundle
+gem 'xbox_live_api'
+```
 
 Or install it yourself as:
 
+```
     $ gem install xbox-live-api
-
+```
 ## Usage
 
-TODO: Write usage instructions here
+To use this library, you must first login using your Windows Live Account details. This will provide you with an `XboxLiveApi` 
+object that can be used to request additional information. 
 
-## Development
+```ruby
+require 'xbox_live_api'
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake rspec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+api = XboxLiveApi.login(email, password)
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+Once logged in the following information can be accessed. 
+
+ - [Profile](https://github.com/oakesja/xbox-live-api/blob/master/lib/xbox_live_api/models/profile.rb)
+ - [Games](https://github.com/oakesja/xbox-live-api/blob/master/lib/xbox_live_api/models/game.rb)
+ - [Achievements](https://github.com/oakesja/xbox-live-api/blob/master/lib/xbox_live_api/models/achievement.rb)
+ 
+```ruby
+
+profile = api.get_profile
+
+xbox_one_games = api.get_xbox_one_games
+
+xbox_360_games = api.get_xbox_360_games
+
+achievements = api.get_achievements_for(xbox_360_games.first)
+
+```
+
+Each call will return a corresponding object (ex. XboxLiveApi::Game). See the above links for all of their attributes. 
+
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/xbox-live-api.
-
+If you run into any issues, find a bug, or have a question please submit an issue on Github. 
+If you would like to contribute to this project please fork it and create a pull request. 
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+This gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+
+It is also an unofficial API of the Xbox LIVE Service, it is in no way endorsed or affiliated to the Microsoft 
+Corporation, Xbox, Xbox LIVE and any Xbox images are registered trademarks of their respected owners.
 
