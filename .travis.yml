@@ -1,6 +1,7 @@
 language: ruby
-env:
-  - TEST_ENV=TRAVIS
+addons:
+  code_climate:
+    repo_token: 1fb6cd437dc5411002c26694bc0dee9d9f82d1fc250cea9bb9d78a3b169c7508
 rvm:
   - 2.2.0
   - 2.1.0

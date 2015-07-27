@@ -1,7 +1,6 @@
-$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
-require 'xbox_live_api'
+require 'codeclimate-test-reporter'
+CodeClimate::TestReporter.start
 
-if ENV['TEST_ENV'] == 'TRAVIS'
-  require 'coveralls'
-  Coveralls.wear!
-end
+$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+
+require 'xbox_live_api'
