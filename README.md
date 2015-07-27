@@ -1,4 +1,7 @@
-# Xbox::Live::Api
+# XboxLiveApi
+[![Build Status](https://travis-ci.org/oakesja/xbox-live-api.svg?branch=master)](https://travis-ci.org/oakesja/xbox-live-api)
+[![Code Climate](https://codeclimate.com/github/oakesja/xbox-live-api/badges/gpa.svg)](https://codeclimate.com/github/oakesja/xbox-live-api)
+[![Test Coverage](https://codeclimate.com/github/oakesja/xbox-live-api/badges/coverage.svg)](https://codeclimate.com/github/oakesja/xbox-live-api/coverage)
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/xbox/live/api`. To experiment with that code, run `bin/console` for an interactive prompt.
 
