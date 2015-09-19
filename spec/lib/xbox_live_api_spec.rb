@@ -28,22 +28,16 @@ describe XboxLiveApi do
     end
   end
 
-  describe '.with_token' do
-    let(:token) { 'token' }
-    let(:subject) { XboxLiveApi.with_token(token) }
-    it 'will bypass logging in by providing a token used from a prior login' do
-      expect(subject.token).to eql token
+  describe '.with_session_info' do
+    let(:session_info) { XboxLiveApi.login(email, password).session_info }
+    let(:subject) { XboxLiveApi.with_session_info(session_info) }
+    it 'will bypass logging in by providing session info used from a prior login' do
+      expect(subject.session_info).to eql session_info
     end
   end
 
   context 'after a user has been logged in' do
     let(:subject) { XboxLiveApi.login(email, password) }
-
-    describe '#token' do
-      it 'returns the token used for the current session' do
-        expect(subject.token).to_not be_empty
-      end
-    end
 
     describe '#get_profile' do
       it 'returns the profile information for the user' do

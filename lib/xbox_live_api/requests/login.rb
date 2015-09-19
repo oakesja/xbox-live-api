@@ -1,5 +1,5 @@
 require 'xbox_live_api/http_session_gateway'
-require 'xbox_live_api/models/request_info'
+require 'xbox_live_api/models/session_info'
 require 'cgi'
 require 'uri'
 
@@ -17,7 +17,7 @@ class XboxLiveApi
       access_token = get_access_token(url)
       authenticate(access_token)
       authorize
-      RequestInfo.new(user_id: @xid.to_i, gamertag: @gtg, token: @auth_header)
+      SessionInfo.new(user_id: @xid.to_i, gamertag: @gtg, token: @auth_header)
     end
 
     private

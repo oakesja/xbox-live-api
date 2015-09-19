@@ -1,5 +1,5 @@
 class XboxLiveApi
-  class Game < MyComparable
+  class Game
     class Platform
       XBOX_360 = '360'
       XBOX_ONE = '720'
