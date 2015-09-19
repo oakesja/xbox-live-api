@@ -1,11 +1,11 @@
 class XboxLiveApi
   class RequestInfo
-    attr_reader :user_id, :gamertag, :authorization_header
+    attr_reader :user_id, :gamertag, :token
 
-    def initialize(user_id: nil, gamertag: nil, authorization_header: nil)
+    def initialize(user_id: nil, gamertag: nil, token: nil)
       @user_id = user_id
       @gamertag = gamertag
-      @authorization_header = authorization_header
+      @token = token
     end
   end
 end

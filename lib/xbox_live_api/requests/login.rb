@@ -12,13 +12,15 @@ class XboxLiveApi
       @http_gateway = HttpSessionGateway.new
     end
 
-    def go
+    def execute
       url = get_request_url
       access_token = get_access_token(url)
       authenticate(access_token)
       authorize
-      RequestInfo.new(user_id: @xid.to_i, gamertag: @gtg, authorization_header: @auth_header)
+      RequestInfo.new(user_id: @xid.to_i, gamertag: @gtg, token: @auth_header)
     end
+
+    private
 
     def get_request_url
       params = {

@@ -22,13 +22,28 @@ describe XboxLiveApi do
              total_gamerscore: 1000)
   end
 
-  describe '#login' do
-    it 'will log a user in with the specified email and password returing an instance of the api to use' do
+  describe '.login' do
+    it 'will log a user in with the specified email and password returning an instance of the api to use' do
       expect(XboxLiveApi.login(email, password)).to be_an_instance_of XboxLiveApi
     end
   end
+
+  describe '.with_token' do
+    let(:token) { 'token' }
+    let(:subject) { XboxLiveApi.with_token(token) }
+    it 'will bypass logging in by providing a token used from a prior login' do
+      expect(subject.token).to eql token
+    end
+  end
+
   context 'after a user has been logged in' do
     let(:subject) { XboxLiveApi.login(email, password) }
+
+    describe '#token' do
+      it 'returns the token used for the current session' do
+        expect(subject.token).to_not be_empty
+      end
+    end
 
     describe '#get_profile' do
       it 'returns the profile information for the user' do

@@ -8,24 +8,36 @@ require 'xbox_live_api/requests/achievements/achievement_request'
 class XboxLiveApi
 
   def self.login(email, password)
-    request_info = Login.new(email, password).go
+    request_info = Login.new(email, password).execute
     XboxLiveApi.new(request_info)
   end
 
-  def get_profile
-    ProfileRequest.new(@request_info.authorization_header).for(@request_info.user_id)
+  def token
+    @request_info.token
   end
 
+  def get_profile
+    ProfileRequest.new(@request_info.token).for(@request_info.user_id)
+  end
+
+  # def get_profile_with_id
+  #
+  # end
+  #
+  # def get_profile_with_gamertag
+  #
+  # end
+
   def get_xbox_one_games
-    XboxOneGamesRequest.new(@request_info.authorization_header).for(@request_info.user_id)
+    XboxOneGamesRequest.new(@request_info.token).for(@request_info.user_id)
   end
 
   def get_xbox_360_games
-    Xbox360GamesRequest.new(@request_info.authorization_header).for(@request_info.user_id)
+    Xbox360GamesRequest.new(@request_info.token).for(@request_info.user_id)
   end
 
   def get_achievements_for(game)
-    AchievementRequest.new(@request_info.authorization_header).for(@request_info.user_id, game)
+    AchievementRequest.new(@request_info.token).for(@request_info.user_id, game)
   end
 
   private

@@ -1,7 +1,5 @@
-require 'xbox_live_api/models/common/my_comparable'
-
 class XboxLiveApi
-  class Profile < MyComparable
+  class Profile
     attr_reader :id, :gamertag, :gamerscore, :gamer_picture, :account_tier,
                 :xbox_one_rep, :preferred_color_url, :tenure_level
 
@@ -15,6 +13,14 @@ class XboxLiveApi
       @xbox_one_rep = xbox_one_rep
       @preferred_color_url = preferred_color_url
       @tenure_level = tenure_level
+    end
+
+    def ==(o)
+      o.instance_of?(self.class) && o.state == state
+    end
+
+    def hash
+      state.hash
     end
 
     protected

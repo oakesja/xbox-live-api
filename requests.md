@@ -1,5 +1,4 @@
-xbox 360 games
-------------------
+# xbox 360 games
 GET  https://achievements.xboxlive.com/users/xuid(2533274912330216)/history/titles?platforms=1,2,15,16,17&types=1,3&orderBy=unlockTime 
 
 ```json
@@ -44,8 +43,7 @@ GET  https://achievements.xboxlive.com/users/xuid(2533274912330216)/history/titl
 ```
 
 
-xbox one games 
-------------------
+# xbox one games 
 GET  https://achievements.xboxlive.com/users/xuid(2533274912330216)/history/titles?orderBy=unlockTime
 
 ```json
@@ -83,8 +81,7 @@ GET  https://achievements.xboxlive.com/users/xuid(2533274912330216)/history/titl
 
 Note: can use v1 for 360 games
 
-game achievement by game id
--------------------------
+# game achievement by game id
 GET https://achievements.xboxlive.com/users/xuid(2533274912330216)/history/titles/?titleId={264259050,<game_id>,...} HTTP/1.1
 
 ``` json
@@ -109,8 +106,7 @@ GET https://achievements.xboxlive.com/users/xuid(2533274912330216)/history/title
 }
 ```
 
-unknown
-------------------
+# unknown
 GET  https://achievements.xboxlive.com/users/xuid(2533274912330216)/achievements?titleId=264259050&types=Challenge&orderby=EndingSoon 
 
 ```json
@@ -123,8 +119,7 @@ GET  https://achievements.xboxlive.com/users/xuid(2533274912330216)/achievements
 }
 ```
 
-unknown
-------------------
+# unknown
 GET  https://achievements.xboxlive.com/users/xuid(2533274912330216)/history/titles/?titleId=659358693 HTTP/1.1
 
 ```json
@@ -137,8 +132,7 @@ GET  https://achievements.xboxlive.com/users/xuid(2533274912330216)/history/titl
 }
 ```
 
-Featured challenges/achievements
--------------------------------------
+# Featured challenges/achievements
 GET https://achievements.xboxlive.com/users/xuid(2533274912330216)/featured?maxItems=10&orderBy=Endingsoon 
 
 ```json
@@ -217,8 +211,7 @@ GET https://achievements.xboxlive.com/users/xuid(2533274912330216)/featured?maxI
 }
 ```
 
-Achievement for a game by game id
-------------------------------------
+# Achievement for a game by game id
 GET https://achievements.xboxlive.com/users/xuid(2533274912330216)/achievements?titleId=264259050&orderBy=EndingSoon&maxItems=150 
 
 ```json
@@ -286,3 +279,68 @@ GET https://achievements.xboxlive.com/users/xuid(2533274912330216)/achievements?
   }
 }
 ```
+
+# Friends list
+GET social.xboxlive.com/users/xuid(2533274912330216)/people
+
+```json
+{
+  "totalCount": 12,
+  "people": [
+    {
+      "xuid": "2533274943359027",
+      "isFavorite": false,
+      "socialNetworks": [
+        "LegacyXboxLive"
+      ],
+      "isFollowedByCaller": true,
+      "isFollowingCaller": true,
+      "isIdentityShared": true
+    }
+  ]
+}  
+```
+
+# Recent players
+GET /users/xuid(2533274912330216)/recentplayers?maxItems=1000
+Host: social.xboxlive.com
+
+```json
+{
+  "recentPlayers": [
+    {
+      "xuid": "2533274919348744",
+      "isFollowedByCaller": false,
+      "isFollowingCaller": false,
+      "titles": [
+        {
+          "titleId": "860666361",
+          "titleName": "Plants vs. Zombies Garden Warfare",
+          "lastPlayedWithDateTimeUtc": "2015-06-18T02:57:56.4132054Z"
+        }
+      ]
+    }
+  ]
+}    
+```
+
+# Friend summary
+GET /users/xuid(2533274912330216)/summary
+Host: social.xboxlive.com
+
+```json
+{
+  "targetFollowingCount": 12,
+  "targetFollowerCount": 13,
+  "isCallerFollowingTarget": false,
+  "isTargetFollowingCaller": false,
+  "hasCallerMarkedTargetAsFavorite": false,
+  "hasCallerMarkedTargetAsIdentityShared": false,
+  "legacyFriendStatus": "None",
+  "availablePeopleSlots": 999,
+  "recentChangeCount": 0,
+  "watermark": "5247413005989012295"
+}
+```
+
+

@@ -1,7 +1,5 @@
-require 'xbox_live_api/models/common/my_comparable'
-
 class XboxLiveApi
-  class Achievement < MyComparable
+  class Achievement
     attr_reader :name, :id, :is_unlocked, :icon_url, :is_secret, :unlocked_description,
                 :locked_description, :value, :time_unlocked
 
@@ -17,6 +15,14 @@ class XboxLiveApi
       @locked_description = locked_description
       @value = value
       @time_unlocked = time_unlocked
+    end
+
+    def ==(o)
+      o.instance_of?(self.class) && o.state == state
+    end
+
+    def hash
+      state.hash
     end
 
     protected

@@ -1,5 +1,3 @@
-require 'xbox_live_api/models/common/my_comparable'
-
 class XboxLiveApi
   class Game < MyComparable
     class Platform
@@ -19,6 +17,14 @@ class XboxLiveApi
       @current_achievements = current_achievements
       @current_gamerscore = current_gamerscore
       @total_gamerscore = total_gamerscore
+    end
+
+    def ==(o)
+      o.instance_of?(self.class) && o.state == state
+    end
+
+    def hash
+      state.hash
     end
 
     protected
