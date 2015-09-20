@@ -1,6 +1,7 @@
 require 'xbox_live_api/requests/games_request'
 
 class XboxLiveApi
+  # @api private
   class Xbox360GamesRequest < GamesRequest
 
     def for(user_id)

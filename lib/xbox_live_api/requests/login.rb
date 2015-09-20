@@ -4,8 +4,8 @@ require 'cgi'
 require 'uri'
 
 class XboxLiveApi
+  # @api private
   class Login
-
     def initialize(username, password)
       @username = username
       @password = password

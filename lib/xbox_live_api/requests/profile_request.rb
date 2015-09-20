@@ -3,6 +3,7 @@ require 'xbox_live_api/models/profile'
 require 'oj'
 
 class XboxLiveApi
+  # @api private
   class ProfileRequest < BaseRequest
 
     def for(user_id)

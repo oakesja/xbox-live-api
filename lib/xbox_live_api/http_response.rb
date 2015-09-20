@@ -1,4 +1,5 @@
 class XboxLiveApi
+  # @api private
   class HttpResponse
     attr_reader :body, :headers, :status_code
 

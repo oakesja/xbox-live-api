@@ -3,6 +3,7 @@ require 'xbox_live_api/http_response'
 require 'oj'
 
 class XboxLiveApi
+  # @api private
   class HttpSessionGateway
 
     def initialize

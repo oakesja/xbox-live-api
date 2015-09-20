@@ -1,6 +1,7 @@
 require 'xbox_live_api/json_parser/achievements/achievement_json_parser'
 
 class XboxLiveApi
+  # @api private
   class XboxOneAchievementJsonParser < AchievementJsonParser
 
     private
@@ -35,10 +36,6 @@ class XboxLiveApi
 
     def value_from(achievement_json)
       achievement_json['rewards'][0]['value'].to_i
-    end
-
-    def time_unlocked_from(achievement_json)
-      achievement_json['timeUnlocked']
     end
 
     def time_unlocked_from(achievement_json)

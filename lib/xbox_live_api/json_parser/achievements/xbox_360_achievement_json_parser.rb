@@ -1,6 +1,7 @@
 require 'xbox_live_api/json_parser/achievements/achievement_json_parser'
 
 class XboxLiveApi
+  # @api private
   class Xbox360AchievementJsonParser < AchievementJsonParser
 
     private

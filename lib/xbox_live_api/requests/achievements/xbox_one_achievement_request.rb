@@ -3,6 +3,7 @@ require 'xbox_live_api/http_session_gateway'
 require 'xbox_live_api/json_parser/achievements/xbox_one_achievement_json_parser'
 
 class XboxLiveApi
+  # @api private
   class XboxOneAchievementRequest < BaseRequest
 
     def for(user_id, game)

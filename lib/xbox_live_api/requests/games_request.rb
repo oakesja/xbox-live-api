@@ -3,6 +3,7 @@ require 'xbox_live_api/http_session_gateway'
 require 'oj'
 
 class XboxLiveApi
+  # @api private
   class GamesRequest < BaseRequest
 
     def get_game_list_json(user_id, version)

@@ -1,4 +1,5 @@
 class XboxLiveApi
+  # @api private
   class BaseRequest
     class Version
       XBOX_360 = 1

@@ -4,6 +4,7 @@ require 'xbox_live_api/requests/achievements/xbox_360_achievement_request'
 require 'xbox_live_api/models/game'
 
 class XboxLiveApi
+  # @api private
   class AchievementRequest < BaseRequest
 
     def for(user_id, game)

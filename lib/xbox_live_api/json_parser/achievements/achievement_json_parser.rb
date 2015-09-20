@@ -2,6 +2,7 @@ require 'xbox_live_api/models/achievement'
 require 'oj'
 
 class XboxLiveApi
+  # @api private
   class AchievementJsonParser
 
     def parse_achievements_from(json_string)
