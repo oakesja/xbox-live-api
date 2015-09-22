@@ -1,4 +1,4 @@
-require 'xbox_live_api/models/game'
+require 'xbox_live_api/game'
 
 class GameBuilder
   class << self
