@@ -1,7 +1,7 @@
 class XboxLiveApi
   class Profile
 
-    # @return [Fixnum] the user's Xbox Live id
+    # @return [String] the user's Xbox Live id
     attr_reader :id
     # @return [String] the user's Xbox Live gamertag
     attr_reader :gamertag

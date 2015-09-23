@@ -1,7 +1,6 @@
 require 'xbox_live_api/requests/games_request'
 
 class XboxLiveApi
-  # @api private
   module Requests
     class XboxOneGamesRequest < GamesRequest
 
