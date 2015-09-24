@@ -2,7 +2,7 @@
 
 This project follows [Semantic Versioning](http://semver.org/)
 
-## 0.2.0
+## 0.2.0 - 2015-09-23
 - Added documentation for all public objects and interfaces
 - Added `XboxLiveApi.with_session_info`
 - Added `XboxLiveApi.get_friends_ids`
