@@ -35,9 +35,9 @@ api = XboxLiveApi.login(email, password)
 
 Once logged in the following information can be accessed. 
 
- - [Profile](https://github.com/oakesja/xbox-live-api/blob/master/lib/xbox_live_api/models/profile.rb)
- - [Games](https://github.com/oakesja/xbox-live-api/blob/master/lib/xbox_live_api/models/game.rb)
- - [Achievements](https://github.com/oakesja/xbox-live-api/blob/master/lib/xbox_live_api/models/achievement.rb)
+ - [Profile](https://github.com/oakesja/xbox-live-api/blob/master/lib/xbox_live_api/profile.rb)
+ - [Games](https://github.com/oakesja/xbox-live-api/blob/master/lib/xbox_live_api/game.rb)
+ - [Achievements](https://github.com/oakesja/xbox-live-api/blob/master/lib/xbox_live_api/achievement.rb)
  
 ```ruby
 
